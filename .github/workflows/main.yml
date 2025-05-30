@@ -1,0 +1,40 @@
+name: "Build and test"
+
+on:
+  pull_request:
+    branches:
+      - main
+
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build and test flutter app
+    runs-on: macos-latest
+
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: set up flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.32.1'
+
+      - name: clean dependencies
+        run: flutter clean
+
+      - name: install dependencies
+        run: flutter pub get
+
+      - name: analyze code
+        run: flutter analyze
+
+      - name: Run unit tests
+        run: flutter test
+
+      - name: Build APK
+        run: flutter build apk
