@@ -7,8 +7,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:tdd_git_action/counter.dart';
 
 void main() {
-  test('Counter value should be incremented', () {
+  test('Counter initial value should be 0', () {
     Counter counter = Counter();
-    expect(counter.value, 2);
+    expect(counter.value, 0);
   });
 }
