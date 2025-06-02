@@ -4,7 +4,7 @@
 */
 
 class Counter {
-  int value = 1;
+  int value = 0;
 
   void increment() => value++;
 
