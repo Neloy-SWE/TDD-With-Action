@@ -8,8 +8,10 @@ import 'package:http/http.dart' as http;
 // import 'package:mocking/main.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:tdd_git_action/network/api/api_album.dart';
-import 'package:tdd_git_action/network/model/model_album.dart';
+import 'package:tdd_git_action/case_unit/network/api/api_album.dart';
+import 'package:tdd_git_action/case_unit/network/model/model_album.dart';
+
+
 
 import 'fetch_album_test.mocks.dart';
 

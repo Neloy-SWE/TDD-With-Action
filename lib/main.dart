@@ -5,9 +5,11 @@
 
 import 'package:flutter/material.dart';
 
-import 'network/api/api_album.dart';
-import 'network/model/model_album.dart';
 import 'package:http/http.dart' as http;
+
+import 'case_unit/network/api/api_album.dart';
+import 'case_unit/network/model/model_album.dart';
+
 
 void main() {
   runApp(MyApp());
