@@ -12,8 +12,8 @@ void main() {
       WidgetSimple(title: "Hello world", message: "Testing simple widget"),
     );
 
-    final checkTitle = find.text("hello world");
-    final checkMessage = find.text("testing simple widget");
+    final checkTitle = find.text("Hello world");
+    final checkMessage = find.text("Testing simple widget");
 
     expect(checkTitle, findsOneWidget);
     expect(checkMessage, findsOneWidget);
