@@ -6,13 +6,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:tdd_git_action/case_widget/widget_scrollable.dart';
 
 import 'case_unit/network/api/api_album.dart';
 import 'case_unit/network/model/model_album.dart';
 
-
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(title: "Testing practice", home: MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -23,7 +23,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   late Future<Album> futureAlbum;
 
   @override
@@ -34,10 +33,10 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Testing practice",
-      home: Scaffold(appBar: AppBar(title: Text("Album")), body: Center(
-        child:FutureBuilder<Album>(
+    return Scaffold(
+      appBar: AppBar(title: Text("Album")),
+      body: Center(
+        child: FutureBuilder<Album>(
           future: futureAlbum,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
@@ -48,7 +47,19 @@ class _MyAppState extends State<MyApp> {
             return const CircularProgressIndicator();
           },
         ),
-      ),),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (builder) => WidgetScrollable(
+                items: List<String>.generate(10000, (i) => 'Item $i'),
+              ),
+            ),
+          );
+        },
+        child: Icon(Icons.arrow_forward_rounded),
+      ),
     );
   }
 }

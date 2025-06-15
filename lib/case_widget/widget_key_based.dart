@@ -10,6 +10,10 @@ class WidgetKeyBased extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(key: ValueKey("keyBasedWidget"), "Hello", textDirection: TextDirection.ltr,);
+    return Text(
+      key: ValueKey("keyBasedWidget"),
+      "Hello",
+      textDirection: TextDirection.ltr,
+    );
   }
 }
