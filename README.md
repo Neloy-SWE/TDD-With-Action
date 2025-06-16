@@ -1,16 +1,20 @@
-# tdd_git_action
+# Test Driven Development With GitHub Actions
 
-A new Flutter project.
+This flutter project is designed for mainly basic unit testing and widget testing.
 
-## Getting Started
+## Tools and technologies:
+1. Framework: flutter 3.32.1
+2. Programming language: dart 3.8.1
 
-This project is a starting point for a Flutter application.
+To use Flutter in your environment:<br>
+Follow the [official guide](https://docs.flutter.dev/get-started/install)
 
-A few resources to get you started if this is your first Flutter project:
+## Packages:
+1. http
+2. test
+3. flutter_test
+4. mockito
+5. build_runner
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**Code of the project is highly inspired form [Testing Flutter apps](https://docs.flutter.dev/testing/overview).**
