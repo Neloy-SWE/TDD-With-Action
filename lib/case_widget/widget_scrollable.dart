@@ -44,15 +44,15 @@ class _WidgetScrollableState extends State<WidgetScrollable> {
               ],
             );
           } else {
-            return /*Dismissible(
-              key: Key("dismiss$index"),
-              child:*/ ListTile(
+            return Dismissible(
+              key: Key("dismiss${index-1}"),
+              child: ListTile(
               title: Text(
                 key: Key("key${index - 1}"),
                 widget.items[index - 1],
                 textDirection: TextDirection.ltr,
               ),
-              // ),
+              ),
             );
           }
         },
@@ -61,6 +61,7 @@ class _WidgetScrollableState extends State<WidgetScrollable> {
         onPressed: () {
           setState(() {
             showText = controllerAddItem.text;
+            controllerAddItem.clear();
           });
         },
         child: Icon(Icons.file_upload_outlined),

@@ -138,7 +138,7 @@ void main() {
         matching: find.byType(Scrollable),
       );
       final RenderObject? textFieldScrollableRenderObject =
-      textFieldScrollableFinder.evaluate().isNotEmpty
+          textFieldScrollableFinder.evaluate().isNotEmpty
           ? tester.renderObject(textFieldScrollableFinder.first)
           : null;
       final listFinder = find.byWidgetPredicate((Widget widget) {
@@ -155,7 +155,7 @@ void main() {
 
       await tester.scrollUntilVisible(
         itemFinder,
-        10.0,
+        100.0,
         scrollable: listFinder,
         maxScrolls: 100000,
       );
