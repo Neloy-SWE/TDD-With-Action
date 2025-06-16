@@ -5,10 +5,18 @@
 
 import 'package:flutter/material.dart';
 
-class WidgetScrollable extends StatelessWidget {
+class WidgetScrollable extends StatefulWidget {
   final List<String> items;
 
   const WidgetScrollable({super.key, required this.items});
+
+  @override
+  State<WidgetScrollable> createState() => _WidgetScrollableState();
+}
+
+class _WidgetScrollableState extends State<WidgetScrollable> {
+  TextEditingController controllerAddItem = TextEditingController();
+  String showText = "";
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +24,46 @@ class WidgetScrollable extends StatelessWidget {
       appBar: AppBar(title: Text("Scrollable Widget")),
       body: ListView.builder(
         key: const Key("scrollableList"),
-        itemCount: items.length,
+        padding: EdgeInsets.all(25),
+        itemCount: widget.items.length + 1,
         itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(
-              key: Key("key$index"),
-              items[index],
-              textDirection: TextDirection.ltr,
-            ),
-          );
+          if (index == 0) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextField(
+                  key: const Key("addTextField"),
+                  controller: controllerAddItem,
+                ),
+                SizedBox(height: 10),
+                Text(
+                  showText,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 10),
+              ],
+            );
+          } else {
+            return /*Dismissible(
+              key: Key("dismiss$index"),
+              child:*/ ListTile(
+              title: Text(
+                key: Key("key${index - 1}"),
+                widget.items[index - 1],
+                textDirection: TextDirection.ltr,
+              ),
+              // ),
+            );
+          }
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            showText = controllerAddItem.text;
+          });
+        },
+        child: Icon(Icons.file_upload_outlined),
       ),
     );
   }

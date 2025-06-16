@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (builder) => WidgetScrollable(
-                items: List<String>.generate(10000, (i) => 'Item $i'),
+                items: List<String>.generate(50, (i) => 'Item $i'),
               ),
             ),
           );
